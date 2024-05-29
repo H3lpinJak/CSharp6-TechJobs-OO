@@ -8,8 +8,6 @@ namespace TechJobsOO.Tests
 
         // Testing Location --------------------------------------------------------
 
-        /* TODO: Task 2: Remove this line to uncomment the tests
-
         [TestMethod] //1
         public void Test_Second_Location_Constructor_Exists()
         {
