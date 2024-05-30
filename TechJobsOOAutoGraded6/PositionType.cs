@@ -22,7 +22,7 @@ namespace TechJobsOOAutoGraded6
          public override bool Equals(object obj)
         {
             return obj is PositionType position &&
-                   id == position.id;
+                   Id == position.Id;
         }
         public override int GetHashCode()
         {
