@@ -56,5 +56,47 @@ namespace TechJobs.Tests
             //Test that Equals() returns false
             Assert.IsFalse(jobA.Equals(jobB));
         }
+        [TestMethod]
+        public void TestToStringStartsAndEndsWithNewLine()
+        {
+            Job job = new Job();
+
+            string jobString = job.ToString();
+
+            Assert.IsTrue(jobString.StartsWith("\n"));
+            Assert.IsTrue(jobString.EndsWith("\n"));
+        }
+        [TestMethod]
+        public void TestToStringContainsCorrectLabelAndData()
+        {
+            Job job = new Job (
+                "Product tester", new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Presistence")
+            );
+            string jobString = job.ToString();
+
+        Assert.IsTrue(jobString.Contains($": {job.Id}"));
+        Assert.IsTrue(jobString.Contains($": {job.Name}"));
+        Assert.IsTrue(jobString.Contains($": {job.EmployerName.Value}"));
+        Assert.IsTrue(jobString.Contains($": {job.EmployerLocation.Value}"));
+        Assert.IsTrue(jobString.Contains($": {job.JobType.Value}"));
+        Assert.IsTrue(jobString.Contains($": {job.JobCoreCompetency.Value}"));
+        }
+        [TestMethod]
+        public void TestToStringHandlesEmptyField()
+        {
+Job job = new Job(
+"",
+new Employer("ACME"),
+new Location("Desert"),
+new PositionType("Quality control"),
+new CoreCompetency("Persistence")
+);
+string jobString = job.ToString();
+
+Assert.IsTrue(jobString.Contains("\nName: Data not available"));
+        }
     }
 }
