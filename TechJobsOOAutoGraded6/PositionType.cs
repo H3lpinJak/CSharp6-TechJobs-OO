@@ -3,7 +3,7 @@ namespace TechJobsOOAutoGraded6
 {
 	public class PositionType
 	{
-        public int Id { get; }
+        public int Id { get; set; }
         private static int nextId = 1;
         public string Value { get; set; }
 
@@ -13,9 +13,10 @@ namespace TechJobsOOAutoGraded6
             nextId++;
         }
 
-        public PositionType(string value) : this()
+        public PositionType(string value, int id) : this()
         {
             Value = value;
+            Id = id;
         }
     
          public override bool Equals(object obj)

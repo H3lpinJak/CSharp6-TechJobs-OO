@@ -18,7 +18,15 @@ namespace TechJobsOOAutoGraded6
     {
         Value = value;
     }
-    
+    public Location(int id, string value)
+    {
+        Id =id;
+        Value = value;
+        if (id >= nextId)
+        {
+            nextId = id + 1;
+        }
+    }
         public override bool Equals(object obj)
         {
             return obj is Location location && Id == location.Id;

@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace TechJobsOOAutoGraded6
 {
 	public class CoreCompetency

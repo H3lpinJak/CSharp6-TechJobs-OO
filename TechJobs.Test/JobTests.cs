@@ -36,7 +36,7 @@ namespace TechJobs.Tests
             Assert.AreEqual(job1.Id + 1, job2.Id);
         }
         [TestMethod]
-        public void Test_TestJobConstructorSetsAllFields()
+        public void TestJobConstructorSetsAllFields()
         {
             Job selectedJob = job3;
 
