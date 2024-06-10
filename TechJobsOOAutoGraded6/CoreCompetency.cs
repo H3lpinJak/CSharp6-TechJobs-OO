@@ -1,40 +1,14 @@
 ﻿using System;
+using TechJonsOOAutoGraded6;
 
 namespace TechJobsOOAutoGraded6
 {
-	public class CoreCompetency
+    // using JobField here it calls the class without having the code repeated in different files
+	public class CoreCompetency : JobField
 	{
-        public int Id { get; } = 0; // using initalizer make this auto-implemented
-        private static int nextId = 1; 
-        public string Value { get; } //Make this Auto-implemented
-
-
-        public CoreCompetency()
+        public CoreCompetency(string value) : base(value)
         {
-            Id = nextId;
-            nextId++;
-        }
 
-        public CoreCompetency(string v) : this()
-        {
-            Value = v;
-        }
-
-        public override bool Equals(object obj)
-        {
-            return obj is CoreCompetency competency &&
-                   Id == competency.Id;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Id);
-        }
-
-        public override string ToString()
-        {
-            return Value;
         }
     }
-}
-
+}      
