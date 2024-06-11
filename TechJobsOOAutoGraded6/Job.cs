@@ -50,11 +50,13 @@ namespace TechJobsOOAutoGraded6
         {
             string nameValue = string.IsNullOrEmpty(Name) ? "Data not available" : Name;
             string employerValue = EmployerName == null ? "Data not available" : EmployerName.Value;
-            string locationValue = EmployerLocation == null ? "Data not available" : EmployerLocation.Value;
+            string locationValue =
+                EmployerLocation == null ? "Data not available" : EmployerLocation.Value;
             string positionTypeValue = JobType == null ? "Data not available" : JobType.Value;
-            string CoreCompetencyValue = JobCoreCompetency == null ? "Data not available" : JobCoreCompetency.Value;
-            
-            return "\nID: {Id}\nName: {Name}\nEmployer: {EmployerName.Value}\nLocation: {EmployerLocation.Value}\nPosition Type: {JobType.Value}\nCore Competency: {JobCoreCompetency.Value}\n";
+            string coreCompetencyValue =
+                JobCoreCompetency == null ? "Data not available" : JobCoreCompetency.Value;
+
+            return $"\nID: {Id}\nName: {nameValue}\nEmployer: {employerValue}\nLocation: {locationValue}\nPosition Type: {positionTypeValue}\nCore Competency: {coreCompetencyValue}\n";
         }
     }
 }
