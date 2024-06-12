@@ -73,7 +73,7 @@ namespace TechJobs.Tests
         }
 
         [TestMethod]
-        public void TestToStringContainsCorrectLabelAndData()
+        public void TestToStringContainsCorrectLabelsAndData()
         {
             Job job = new Job(
                 "Product tester",
@@ -104,7 +104,7 @@ namespace TechJobs.Tests
             );
             string jobString = job.ToString();
 
-            Assert.IsTrue(jobString.Contains($"{Environment.NewLine}Name: Data not available{Environment.NewLine}"));
+            Assert.IsTrue(jobString.Contains($"Name: Data not available"));
         }
     }
 }

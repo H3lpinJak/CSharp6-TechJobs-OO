@@ -44,14 +44,15 @@ namespace TechJobsOOAutoGraded6
             string positionTypeValue = JobType == null || string.IsNullOrEmpty(JobType.Value) ? "Data not available" : JobType.Value;
             string coreCompetencyValue = JobCoreCompetency == null || string.IsNullOrEmpty(JobCoreCompetency.Value) ? "Data not available" : JobCoreCompetency.Value;
 
-            string result = $"ID: {Id}{Environment.NewLine}" +
-                            $"Name: {nameValue}{Environment.NewLine}" +
-                            $"Employer: {employerValue}{Environment.NewLine}" +
-                            $"Location: {locationValue}{Environment.NewLine}" +
-                            $"Position Type: {positionTypeValue}{Environment.NewLine}" +
-                            $"Core Competency: {coreCompetencyValue}";
+            string nl = Environment.NewLine;
+            string result = $"ID: {Id}{nl}" +
+                            $"Name: {nameValue}{nl}" +
+                            $"Employer: {employerValue}{nl}" +
+                            $"Location: {locationValue}{nl}" +
+                            $"Position Type: {positionTypeValue}{nl}" +
+                            $"Core Competency: {coreCompetencyValue}{nl}";
 
-            return $"{Environment.NewLine}{result.Trim()}{Environment.NewLine}";
+            return result;
         }
 
         public override bool Equals(object obj)
