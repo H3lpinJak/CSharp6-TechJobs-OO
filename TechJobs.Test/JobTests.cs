@@ -1,7 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechJobs;
 
-
 namespace TechJobs.Tests
 {
     [TestClass]
@@ -26,6 +25,7 @@ namespace TechJobs.Tests
             new PositionType("Quality control"),
             new CoreCompetency("Persistence")
         );
+
         [TestMethod]
         public void TestSettingJobId()
         {
@@ -35,6 +35,7 @@ namespace TechJobs.Tests
             //Check if the Difference between the Id's is exactly 1
             Assert.AreEqual(job1.Id + 1, job2.Id);
         }
+
         [TestMethod]
         public void TestJobConstructorSetsAllFields()
         {
@@ -47,6 +48,7 @@ namespace TechJobs.Tests
             Assert.AreEqual("Quality control", selectedJob.JobType.Value);
             Assert.AreEqual("Persistence", selectedJob.JobCoreCompetency.Value);
         }
+
         [TestMethod]
         public void TestJobsForEquality()
         {
@@ -56,6 +58,7 @@ namespace TechJobs.Tests
             //Test that Equals() returns false
             Assert.IsFalse(jobA.Equals(jobB));
         }
+
         [TestMethod]
         public void TestToStringStartsAndEndsWithNewLine()
         {
@@ -63,14 +66,15 @@ namespace TechJobs.Tests
 
             string jobString = job.ToString();
 
-            Assert.IsTrue(jobString.StartsWith("\n"));
-            Assert.IsTrue(jobString.EndsWith("\n"));
+            Assert.IsTrue(jobString.StartsWith(Environment.NewLine));
+            Assert.IsTrue(jobString.EndsWith(Environment.NewLine));
         }
+
         [TestMethod]
         public void TestToStringContainsCorrectLabelAndData()
         {
-            Job job = new Job (
-                "Product tester", 
+            Job job = new Job(
+                "Product tester",
                 new Employer("ACME"),
                 new Location("Desert"),
                 new PositionType("Quality control"),
@@ -78,26 +82,27 @@ namespace TechJobs.Tests
             );
             string jobString = job.ToString();
 
-        Assert.IsTrue(jobString.Contains($": {job.Id}"));
-        Assert.IsTrue(jobString.Contains($": {job.Name}"));
-        Assert.IsTrue(jobString.Contains($": {job.EmployerName}"));
-        Assert.IsTrue(jobString.Contains($": {job.EmployerLocation}"));
-        Assert.IsTrue(jobString.Contains($": {job.JobType}"));
-        Assert.IsTrue(jobString.Contains($": {job.JobCoreCompetency}"));
+            Assert.IsTrue(jobString.Contains($": {job.Id}"));
+            Assert.IsTrue(jobString.Contains($": {job.Name}"));
+            Assert.IsTrue(jobString.Contains($": {job.EmployerName}"));
+            Assert.IsTrue(jobString.Contains($": {job.EmployerLocation}"));
+            Assert.IsTrue(jobString.Contains($": {job.JobType}"));
+            Assert.IsTrue(jobString.Contains($": {job.JobCoreCompetency}"));
         }
+
         [TestMethod]
         public void TestToStringHandlesEmptyField()
         {
-Job job = new Job(
-"",
-new Employer("ACME"),
-new Location("Desert"),
-new PositionType("Quality control"),
-new CoreCompetency("Persistence")
-);
-string jobString = job.ToString();
+            Job job = new Job(
+                "",
+                new Employer("ACME"),
+                new Location("Desert"),
+                new PositionType("Quality control"),
+                new CoreCompetency("Persistence")
+            );
+            string jobString = job.ToString();
 
-//Assert.IsTrue(jobString.Contains("\nName: Data not available"));
+            //Assert.IsTrue(jobString.Contains($"{Environment.NewLine}Name: Data not available{Environment.NewLine}"));
         }
     }
 }
