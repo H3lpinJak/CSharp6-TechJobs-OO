@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace TechJobsOOAutoGraded6
 {
@@ -30,12 +29,29 @@ namespace TechJobsOOAutoGraded6
         )
             : this()
         {
-            Id = nextId++;
             Name = name;
             EmployerName = employerName;
             EmployerLocation = employerLocation;
             JobType = jobtype;
             JobCoreCompetency = jobCoreCompetency;
+        }
+
+        public override string ToString()
+        {
+            string nameValue = string.IsNullOrEmpty(Name) ? "Data not available" : Name;
+            string employerValue = EmployerName == null || string.IsNullOrEmpty(EmployerName.Value) ? "Data not available" : EmployerName.Value;
+            string locationValue = EmployerLocation == null || string.IsNullOrEmpty(EmployerLocation.Value) ? "Data not available" : EmployerLocation.Value;
+            string positionTypeValue = JobType == null || string.IsNullOrEmpty(JobType.Value) ? "Data not available" : JobType.Value;
+            string coreCompetencyValue = JobCoreCompetency == null || string.IsNullOrEmpty(JobCoreCompetency.Value) ? "Data not available" : JobCoreCompetency.Value;
+
+            string result = $"ID: {Id}{Environment.NewLine}" +
+                            $"Name: {nameValue}{Environment.NewLine}" +
+                            $"Employer: {employerValue}{Environment.NewLine}" +
+                            $"Location: {locationValue}{Environment.NewLine}" +
+                            $"Position Type: {positionTypeValue}{Environment.NewLine}" +
+                            $"Core Competency: {coreCompetencyValue}";
+
+            return $"{Environment.NewLine}{result.Trim()}{Environment.NewLine}";
         }
 
         public override bool Equals(object obj)
@@ -46,17 +62,6 @@ namespace TechJobsOOAutoGraded6
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);
-        }
-
-        public override string ToString()
-        {
-            string nameValue = string.IsNullOrEmpty(Name) ? "Data not available" : Name;
-            string employerValue = EmployerName == null ? "Data not available" : EmployerName.Value;
-            string locationValue = EmployerLocation == null ? "Data not available" : EmployerLocation.Value;
-            string positionTypeValue = JobType == null ? "Data not available" : JobType.Value;
-            string coreCompetencyValue = JobCoreCompetency == null ? "Data not available" : JobCoreCompetency.Value;
-
-            return $"{Environment.NewLine}ID: {Id}{Environment.NewLine}Name: {nameValue}{Environment.NewLine}Employer: {employerValue}{Environment.NewLine}Location: {locationValue}{Environment.NewLine}Position Type: {positionTypeValue}{Environment.NewLine}Core Competency: {coreCompetencyValue}{Environment.NewLine}";
         }
     }
 }

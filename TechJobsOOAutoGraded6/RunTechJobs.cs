@@ -29,7 +29,6 @@ namespace TechJobsOOAutoGraded6
                 new PositionType("UX"),
                 new CoreCompetency("Tasting ability")
             );
-
             List<Job> jobs = new List<Job>();
             jobs.Add(job1);
             jobs.Add(job2);
@@ -37,7 +36,7 @@ namespace TechJobsOOAutoGraded6
 
             foreach (Job job in jobs)
             {
-            Console.WriteLine("\n" + job + "\n");
+            Console.WriteLine(Environment.NewLine + job + Environment.NewLine);
             }
         }
     }
