@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace TechJobsOOAutoGraded6
 {
@@ -49,11 +50,11 @@ namespace TechJobsOOAutoGraded6
 
         public override string ToString()
         {
-            string nameValue = string.IsNullOrEmpty(Name) ? "" : Name;
-            string employerValue = EmployerName == null ? "" : EmployerName.Value;
-            string locationValue = EmployerLocation == null ? "" : EmployerLocation.Value;
-            string positionTypeValue = JobType == null ? "" : JobType.Value;
-            string coreCompetencyValue = JobCoreCompetency == null ? "" : JobCoreCompetency.Value;
+            string nameValue = string.IsNullOrEmpty(Name) ? "Data not available" : Name;
+            string employerValue = EmployerName == null ? "Data not available" : EmployerName.Value;
+            string locationValue = EmployerLocation == null ? "Data not available" : EmployerLocation.Value;
+            string positionTypeValue = JobType == null ? "Data not available" : JobType.Value;
+            string coreCompetencyValue = JobCoreCompetency == null ? "Data not available" : JobCoreCompetency.Value;
 
             return $"{Environment.NewLine}ID: {Id}{Environment.NewLine}Name: {nameValue}{Environment.NewLine}Employer: {employerValue}{Environment.NewLine}Location: {locationValue}{Environment.NewLine}Position Type: {positionTypeValue}{Environment.NewLine}Core Competency: {coreCompetencyValue}{Environment.NewLine}";
         }

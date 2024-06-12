@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechJobs;
+using System;
+
 
 namespace TechJobs.Tests
 {
@@ -102,7 +104,7 @@ namespace TechJobs.Tests
             );
             string jobString = job.ToString();
 
-            //Assert.IsTrue(jobString.Contains($"{Environment.NewLine}Name: Data not available{Environment.NewLine}"));
+            Assert.IsTrue(jobString.Contains($"{Environment.NewLine}Name: Data not available{Environment.NewLine}"));
         }
     }
 }
